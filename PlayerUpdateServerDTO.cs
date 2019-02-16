@@ -13,8 +13,6 @@ namespace UnityMultiplayerDRPlugin.DTOs
 
         public void Deserialize(DeserializeEvent e)
         {
-            ID = e.Reader.ReadUInt16();
-
             x = e.Reader.ReadSingle();
             y = e.Reader.ReadSingle();
             z = e.Reader.ReadSingle();
@@ -26,8 +24,6 @@ namespace UnityMultiplayerDRPlugin.DTOs
 
         public void Serialize(SerializeEvent e)
         {
-            e.Writer.Write(ID);
-
             e.Writer.Write(x);
             e.Writer.Write(y);
             e.Writer.Write(z);

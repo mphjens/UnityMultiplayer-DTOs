@@ -7,14 +7,11 @@ namespace UnityMultiplayerDRPlugin.DTOs
 {
     class PlayerUpdateClientDTO : IDarkRiftSerializable
     {
-        public ushort ID;
         public float x, y, z;
         public float rx, ry, rz;
 
         public void Deserialize(DeserializeEvent e)
         {
-            ID = e.Reader.ReadUInt16();
-
             x = e.Reader.ReadSingle();
             y = e.Reader.ReadSingle();
             z = e.Reader.ReadSingle();
