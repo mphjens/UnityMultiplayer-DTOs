@@ -18,7 +18,8 @@ namespace UnityMultiplayerDRPlugin.DTOs
 
         public void Serialize(SerializeEvent e)
         {
-            e.Writer.Write(entityID);
+            e.Writer.Write(playerID);
+            e.Writer.Write(fireNum);
         }
     }
 }
