@@ -1,7 +1,7 @@
 ﻿static class Tags
 {
     public static readonly ushort SpawnPlayerTag = 0;
-    public static readonly ushort MovePlayerTag = 1;
+    public static readonly ushort PlayerUpdateTag = 1;
     public static readonly ushort DespawnPlayerTag = 2;
 
     public static readonly ushort SpawnEntityTag = 3;
@@ -11,4 +11,9 @@
     public static readonly ushort SetEntityPhysicsHost = 7;
     public static readonly ushort PhysicsUpdateEntityTag = 8;
     public static readonly ushort SetPhysicsEntityTag = 9;
+
+    internal static readonly ushort WeaponFireStartTag = 10;
+    internal static readonly ushort WeaponFireEndTag = 11;
+    internal static readonly ushort WeaponSwitchTag = 12;
+    internal static readonly ushort WeaponActionTag = 13;
 }
