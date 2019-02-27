@@ -8,13 +8,13 @@ namespace UnityMultiplayerDRPlugin.DTOs
     class WeaponSwitchServerDTO : IDarkRiftSerializable
     {
         public ushort playerId;
-        public uint weaponEntityId;
+        public ushort weaponEntityId;
         public ushort weaponSlot;
 
         public void Deserialize(DeserializeEvent e)
         {
             playerId = e.Reader.ReadUInt16();
-            weaponEntityId = e.Reader.ReadUInt32();
+            weaponEntityId = e.Reader.ReadUInt16();
             weaponSlot = e.Reader.ReadUInt16();
         }
 

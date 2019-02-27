@@ -9,6 +9,7 @@ namespace UnityMultiplayerDRPlugin.DTOs
     {
         public float x, y, z;
         public float rx, ry, rz;
+        public float vx, vy, vz;
 
         public void Deserialize(DeserializeEvent e)
         {
@@ -19,6 +20,10 @@ namespace UnityMultiplayerDRPlugin.DTOs
             rx = e.Reader.ReadSingle();
             ry = e.Reader.ReadSingle();
             rz = e.Reader.ReadSingle();
+
+            vx = e.Reader.ReadSingle();
+            vy = e.Reader.ReadSingle();
+            vz = e.Reader.ReadSingle();
         }
 
         public void Serialize(SerializeEvent e)
@@ -30,6 +35,10 @@ namespace UnityMultiplayerDRPlugin.DTOs
             e.Writer.Write(rx);
             e.Writer.Write(ry);
             e.Writer.Write(rz);
+
+            e.Writer.Write(vx);
+            e.Writer.Write(vy);
+            e.Writer.Write(vz);
         }
     }
 }
