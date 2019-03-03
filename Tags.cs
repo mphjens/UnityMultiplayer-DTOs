@@ -16,4 +16,6 @@
     internal static readonly ushort WeaponFireEndTag = 11;
     internal static readonly ushort WeaponSwitchTag = 12;
     internal static readonly ushort WeaponActionTag = 13;
+
+    internal static readonly ushort DamageHurtableTag = 14;
 }
