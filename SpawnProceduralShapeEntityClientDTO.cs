@@ -3,7 +3,6 @@ using DarkRift;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using UnityEngine;
 
 namespace UnityMultiplayerDRPlugin.DTOs
 {
@@ -11,16 +10,16 @@ namespace UnityMultiplayerDRPlugin.DTOs
     {
         public ProceduralEntityType type;
         public int NrBuildingPoints; // Note: Value is overwritten with buildingPoints.Length on serialize
-        public Vector3[] buildingPoints;
+        public UMVector3[] buildingPoints;
 
         public void Deserialize(DeserializeEvent e)
         {
             type = (ProceduralEntityType)e.Reader.ReadInt32();
             NrBuildingPoints = e.Reader.ReadInt32();
-            buildingPoints = new Vector3[NrBuildingPoints];
+            buildingPoints = new UMVector3[NrBuildingPoints];
             for(int i = 0; i < NrBuildingPoints; i++)
             {
-                buildingPoints[i] = new Vector3(e.Reader.ReadSingle(), e.Reader.ReadSingle(), e.Reader.ReadSingle());
+                buildingPoints[i] = new UMVector3(e.Reader.ReadSingle(), e.Reader.ReadSingle(), e.Reader.ReadSingle());
             }
         }
 
