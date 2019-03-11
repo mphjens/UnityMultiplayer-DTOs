@@ -18,4 +18,5 @@
     internal static readonly ushort WeaponActionTag = 13;
 
     internal static readonly ushort DamageHurtableTag = 14;
+    internal static readonly ushort SpawnProceduralShapeEntityTag = 15;
 }
