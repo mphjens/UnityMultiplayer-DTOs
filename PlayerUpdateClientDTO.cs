@@ -5,11 +5,20 @@ using System.Text;
 
 namespace UnityMultiplayerDRPlugin.DTOs
 {
+    public enum UMPlayerTrigger : ushort
+    {
+        Jump,
+        Reload,
+        Swing,
+        Shoot,
+    }
+
     class PlayerUpdateClientDTO : IDarkRiftSerializable
     {
         public float x, y, z;
         public float rx, ry, rz;
         public float vx, vy, vz;
+        public ushort[] triggerQueue;
 
         public void Deserialize(DeserializeEvent e)
         {
@@ -24,6 +33,8 @@ namespace UnityMultiplayerDRPlugin.DTOs
             vx = e.Reader.ReadSingle();
             vy = e.Reader.ReadSingle();
             vz = e.Reader.ReadSingle();
+
+            triggerQueue = e.Reader.ReadUInt16s();
         }
 
         public void Serialize(SerializeEvent e)
@@ -39,6 +50,8 @@ namespace UnityMultiplayerDRPlugin.DTOs
             e.Writer.Write(vx);
             e.Writer.Write(vy);
             e.Writer.Write(vz);
+
+            e.Writer.Write(this.triggerQueue);
         }
     }
 }
