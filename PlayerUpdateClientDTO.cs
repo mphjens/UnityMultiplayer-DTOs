@@ -9,8 +9,10 @@ namespace UnityMultiplayerDRPlugin.DTOs
     {
         Jump,
         Reload,
-        Swing,
-        Shoot,
+        OneHanded_Gun_Fire,
+        TwoHanded_Gun_Fire,
+        OneHanded_Melee_Swing,
+        TwoHanded_Melee_Swing,
     }
 
     class PlayerUpdateClientDTO : IDarkRiftSerializable
