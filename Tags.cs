@@ -18,5 +18,11 @@
     internal static readonly ushort WeaponActionTag = 13;
 
     internal static readonly ushort DamageHurtableTag = 14;
+
     internal static readonly ushort SpawnProceduralShapeEntityTag = 15;
+
+    internal static readonly ushort JoinWorldMessage = 16;
+    internal static readonly ushort ChangeWorldMessage = 17;
+    internal static readonly ushort GetWorldsMessage = 18;
+    internal static readonly ushort CreateWorldMessage = 19;
 }
