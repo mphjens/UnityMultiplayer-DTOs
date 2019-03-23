@@ -6,7 +6,7 @@ using System.Text;
 namespace UnityMultiplayerDRPlugin.DTOs
 {
 
-    class WorldDTO : IDarkRiftSerializable
+    public class WorldDTO : IDarkRiftSerializable
     {
         public string WorldName;
         public ushort SceneEntityID;
@@ -24,7 +24,7 @@ namespace UnityMultiplayerDRPlugin.DTOs
         }
     }
 
-    class GetWorldsServerDTO : IDarkRiftSerializable
+    public class GetWorldsServerDTO : IDarkRiftSerializable
     {
         public WorldDTO[] Worlds;
 
