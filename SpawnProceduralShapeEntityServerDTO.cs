@@ -17,7 +17,7 @@ namespace UnityMultiplayerDRPlugin.DTOs
         }
     }
 
-    class SpawnProceduralShapeEntityServerDTO : IDarkRiftSerializable
+    public class SpawnProceduralShapeEntityServerDTO : IDarkRiftSerializable
     {
         public uint ID;
         public ProceduralEntityType type;

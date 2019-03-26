@@ -6,7 +6,7 @@ using System.Text;
 
 namespace UnityMultiplayerDRPlugin.DTOs
 {
-    class SpawnProceduralShapeEntityClientDTO : IDarkRiftSerializable
+    public class SpawnProceduralShapeEntityClientDTO : IDarkRiftSerializable
     {
         public ProceduralEntityType type;
         public UMVector3 position;
