@@ -12,6 +12,7 @@ namespace UnityMultiplayerDRPlugin.DTOs
         public ushort EntityId;
         public ushort State;
         public bool hasPhysics;
+        public uint parentID;
         public UMVector3 position;
         public UMVector3 rotation;
         public UMVector3 scale;
@@ -22,6 +23,7 @@ namespace UnityMultiplayerDRPlugin.DTOs
             EntityId = e.Reader.ReadUInt16();
             State = e.Reader.ReadUInt16();
             hasPhysics = e.Reader.ReadBoolean();
+            parentID = e.Reader.ReadUInt32();
 
             position = new UMVector3(e.Reader.ReadSingle(), e.Reader.ReadSingle(), e.Reader.ReadSingle());
             rotation = new UMVector3(e.Reader.ReadSingle(), e.Reader.ReadSingle(), e.Reader.ReadSingle());
@@ -33,6 +35,7 @@ namespace UnityMultiplayerDRPlugin.DTOs
             e.Writer.Write(EntityId);
             e.Writer.Write(State);
             e.Writer.Write(hasPhysics);
+            e.Writer.Write(parentID);
 
             e.Writer.Write(position.x); e.Writer.Write(position.y); e.Writer.Write(position.z);
             e.Writer.Write(rotation.x); e.Writer.Write(rotation.y); e.Writer.Write(rotation.z);
@@ -44,6 +47,7 @@ namespace UnityMultiplayerDRPlugin.DTOs
     public class SpawnEntityServerDTO : IDarkRiftSerializable
     {
         public uint ID;
+        public uint parentID;
         public ushort EntityId;
         public ushort State;
         public bool hasPhysics;
@@ -55,6 +59,7 @@ namespace UnityMultiplayerDRPlugin.DTOs
         public void Deserialize(DeserializeEvent e)
         {
             ID = e.Reader.ReadUInt32();
+            parentID = e.Reader.ReadUInt32();
             EntityId = e.Reader.ReadUInt16();
             State = e.Reader.ReadUInt16();
             hasPhysics = e.Reader.ReadBoolean();
@@ -67,6 +72,7 @@ namespace UnityMultiplayerDRPlugin.DTOs
         public void Serialize(SerializeEvent e)
         {
             e.Writer.Write(ID);
+            e.Writer.Write(parentID);
             e.Writer.Write(EntityId);
             e.Writer.Write(State);
             e.Writer.Write(hasPhysics);
@@ -74,6 +80,24 @@ namespace UnityMultiplayerDRPlugin.DTOs
             e.Writer.Write(position.x); e.Writer.Write(position.y); e.Writer.Write(position.z);
             e.Writer.Write(rotation.x); e.Writer.Write(rotation.y); e.Writer.Write(rotation.z);
             e.Writer.Write(scale.x); e.Writer.Write(scale.y); e.Writer.Write(scale.z);
+        }
+    }
+
+    public class SetParentDTO : IDarkRiftSerializable
+    {
+        public uint ID;
+        public uint parentID;
+
+        public void Deserialize(DeserializeEvent e)
+        {
+            ID = e.Reader.ReadUInt32();
+            parentID = e.Reader.ReadUInt32();
+        }
+
+        public void Serialize(SerializeEvent e)
+        {
+            e.Writer.Write(ID);
+            e.Writer.Write(parentID);
         }
     }
 

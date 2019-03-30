@@ -24,4 +24,6 @@
     internal static readonly ushort JoinWorldMessage = 16;
     internal static readonly ushort GetWorldsMessage = 18;
     internal static readonly ushort CreateWorldMessage = 19;
+
+    internal static readonly ushort SetEntityParentTag = 20;
 }
