@@ -8,6 +8,7 @@ namespace Assets.DTOs
 {
     public enum ProceduralEntityType
     {
-        Wall
+        Wall,
+        Road
     }
 }
