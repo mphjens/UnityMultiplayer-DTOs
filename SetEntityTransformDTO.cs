@@ -11,7 +11,7 @@ namespace UnityMultiplayerDRPlugin.DTOs
         public uint id;
         public UMVector3 position;
         public UMVector3 rotation;
-        public UMVector3 scale;
+        public UMVector3 scale = new UMVector3(1,1,1);
 
         public void Deserialize(DeserializeEvent e)
         {
