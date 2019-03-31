@@ -82,23 +82,4 @@ namespace UnityMultiplayerDRPlugin.DTOs
             e.Writer.Write(scale.x); e.Writer.Write(scale.y); e.Writer.Write(scale.z);
         }
     }
-
-    public class SetParentDTO : IDarkRiftSerializable
-    {
-        public uint ID;
-        public uint parentID;
-
-        public void Deserialize(DeserializeEvent e)
-        {
-            ID = e.Reader.ReadUInt32();
-            parentID = e.Reader.ReadUInt32();
-        }
-
-        public void Serialize(SerializeEvent e)
-        {
-            e.Writer.Write(ID);
-            e.Writer.Write(parentID);
-        }
-    }
-
 }
