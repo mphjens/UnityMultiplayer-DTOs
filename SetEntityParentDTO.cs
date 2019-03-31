@@ -29,6 +29,10 @@ namespace UnityMultiplayerDRPlugin.DTOs
         {
             e.Writer.Write(ID);
             e.Writer.Write(parentID);
+
+            e.Writer.Write(localPosition.x); e.Writer.Write(localPosition.y); e.Writer.Write(localPosition.z);
+            e.Writer.Write(localRotation.x); e.Writer.Write(localRotation.y); e.Writer.Write(localRotation.z);
+            e.Writer.Write(localScale.x); e.Writer.Write(localScale.y); e.Writer.Write(localScale.z);
         }
     }
 }
