@@ -12,6 +12,8 @@ namespace UnityMultiplayerDRPlugin.DTOs
         public ushort EntityId;
         public ushort State;
         public bool hasPhysics;
+        public string WorldEntityUUID;
+
         public uint parentID;
         public UMVector3 position;
         public UMVector3 rotation;
@@ -23,6 +25,7 @@ namespace UnityMultiplayerDRPlugin.DTOs
             EntityId = e.Reader.ReadUInt16();
             State = e.Reader.ReadUInt16();
             hasPhysics = e.Reader.ReadBoolean();
+            WorldEntityUUID = e.Reader.ReadString();
             parentID = e.Reader.ReadUInt32();
 
             position = new UMVector3(e.Reader.ReadSingle(), e.Reader.ReadSingle(), e.Reader.ReadSingle());
@@ -35,6 +38,7 @@ namespace UnityMultiplayerDRPlugin.DTOs
             e.Writer.Write(EntityId);
             e.Writer.Write(State);
             e.Writer.Write(hasPhysics);
+            e.Writer.Write(WorldEntityUUID);
             e.Writer.Write(parentID);
 
             e.Writer.Write(position.x); e.Writer.Write(position.y); e.Writer.Write(position.z);
@@ -50,6 +54,7 @@ namespace UnityMultiplayerDRPlugin.DTOs
         public uint parentID;
         public ushort EntityId;
         public ushort State;
+        public string WorldEntityUUID; // if != "" It's spawned in the scene so we need to alter a exsisting object when we get a spawn message for this entity
         public bool hasPhysics;
         public UMVector3 position;
         public UMVector3 rotation;
@@ -62,6 +67,7 @@ namespace UnityMultiplayerDRPlugin.DTOs
             parentID = e.Reader.ReadUInt32();
             EntityId = e.Reader.ReadUInt16();
             State = e.Reader.ReadUInt16();
+            WorldEntityUUID = e.Reader.ReadString();
             hasPhysics = e.Reader.ReadBoolean();
 
             position = new UMVector3(e.Reader.ReadSingle(), e.Reader.ReadSingle(), e.Reader.ReadSingle());
@@ -75,6 +81,7 @@ namespace UnityMultiplayerDRPlugin.DTOs
             e.Writer.Write(parentID);
             e.Writer.Write(EntityId);
             e.Writer.Write(State);
+            e.Writer.Write(WorldEntityUUID);
             e.Writer.Write(hasPhysics);
 
             e.Writer.Write(position.x); e.Writer.Write(position.y); e.Writer.Write(position.z);
