@@ -26,4 +26,5 @@
     internal static readonly ushort CreateWorldMessage = 19;
 
     internal static readonly ushort SetEntityParentTag = 20;
+    internal static readonly ushort UseEntityTag = 21;
 }
