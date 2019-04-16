@@ -12,7 +12,7 @@ namespace UnityMultiplayerDRPlugin.DTOs
         public ushort EntityId;
         public ushort State;
         public bool hasPhysics;
-        public string WorldEntityUUID;
+        public string WorldEntityUUID = "";
 
         public uint parentID;
         public UMVector3 position;

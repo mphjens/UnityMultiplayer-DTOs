@@ -13,6 +13,7 @@ namespace UnityMultiplayerDRPlugin.DTOs
         TwoHanded_Gun_Fire,
         OneHanded_Melee_Swing,
         TwoHanded_Melee_Swing,
+        Emote_1
     }
 
     class PlayerUpdateClientDTO : IDarkRiftSerializable
