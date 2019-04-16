@@ -32,7 +32,7 @@
     internal static readonly ushort AddInventoryItem = 23;
     internal static readonly ushort TransferInventoryItem = 24; //#
     internal static readonly ushort TrashInventoryItem = 25;
-    internal static readonly ushort GetInventory = 26; //#
+    internal static readonly ushort GetInventory = 26; //#V
 
     internal static readonly ushort LoginTag = 27; //#
 }

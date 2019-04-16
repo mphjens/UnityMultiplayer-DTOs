@@ -44,7 +44,7 @@ namespace UnityMultiplayerDRPlugin.DTOs
         }
     }
 
-    class GetInventoryServerDTO : IDarkRiftSerializable
+    public class GetInventoryServerDTO : IDarkRiftSerializable
     {
         public int InventoryID { get; set; }
         public InventoryItemDTO[] InventoryItems { get; set; }
