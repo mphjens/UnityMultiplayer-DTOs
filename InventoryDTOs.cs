@@ -9,6 +9,7 @@ namespace UnityMultiplayerDRPlugin.DTOs
     {
         public int ID { get; set; }
         public int ItemID { get; set; }
+        public int Position { get; set; }
         public int Count { get; set; }
 
 
@@ -16,6 +17,7 @@ namespace UnityMultiplayerDRPlugin.DTOs
         {
             ID = e.Reader.ReadInt32();
             ItemID = e.Reader.ReadInt32();
+            Position = e.Reader.ReadInt32();
             Count = e.Reader.ReadInt32();
 
         }
@@ -24,6 +26,7 @@ namespace UnityMultiplayerDRPlugin.DTOs
         {
             e.Writer.Write(ID);
             e.Writer.Write(ItemID);
+            e.Writer.Write(Position);
             e.Writer.Write(Count);
  
         }
@@ -47,17 +50,20 @@ namespace UnityMultiplayerDRPlugin.DTOs
     public class GetInventoryServerDTO : IDarkRiftSerializable
     {
         public int InventoryID { get; set; }
+        public int Size { get; set; }
         public InventoryItemDTO[] InventoryItems { get; set; }
 
         public void Deserialize(DeserializeEvent e)
         {
             InventoryID = e.Reader.ReadInt32();
+            Size = e.Reader.ReadInt32();
             InventoryItems = e.Reader.ReadSerializables<InventoryItemDTO>();
         }
 
         public void Serialize(SerializeEvent e)
         {
             e.Writer.Write(InventoryID);
+            e.Writer.Write(Size);
             e.Writer.Write(InventoryItems);
         }
     }
@@ -67,13 +73,14 @@ namespace UnityMultiplayerDRPlugin.DTOs
         public int InventoryItemID { get; set; }
         public int SourceInventoryID { get; set; }
         public int DestinationInventoryID { get; set; }
+        public int Position { get; set; }
 
         public void Deserialize(DeserializeEvent e)
         {
             InventoryItemID = e.Reader.ReadInt32();
             SourceInventoryID = e.Reader.ReadInt32();
             DestinationInventoryID = e.Reader.ReadInt32();
-            
+            Position = e.Reader.ReadInt32();
         }
 
         public void Serialize(SerializeEvent e)
@@ -81,6 +88,7 @@ namespace UnityMultiplayerDRPlugin.DTOs
             e.Writer.Write(InventoryItemID);
             e.Writer.Write(SourceInventoryID);
             e.Writer.Write(DestinationInventoryID);
+            e.Writer.Write(Position);
         }
     }
 
