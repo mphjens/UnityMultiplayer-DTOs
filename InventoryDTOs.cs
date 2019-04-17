@@ -5,7 +5,7 @@ using System.Text;
 
 namespace UnityMultiplayerDRPlugin.DTOs
 {
-    class InventoryItemDTO : IDarkRiftSerializable
+    public class InventoryItemDTO : IDarkRiftSerializable
     {
         public int ID { get; set; }
         public int ItemID { get; set; }
