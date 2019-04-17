@@ -5,13 +5,14 @@ using System.Text;
 
 namespace UnityMultiplayerDRPlugin.DTOs
 {
-    class InventoryItemDTO : IDarkRiftSerializable
+    public class InventoryItemDTO : IDarkRiftSerializable
     {
         public int ID { get; set; }
         public int ItemID { get; set; }
         public int Position { get; set; }
         public int Count { get; set; }
 
+        public int _inventoryid; //not sent over network, but set by GetInventoryServerDTO;
 
         public void Deserialize(DeserializeEvent e)
         {
@@ -58,6 +59,10 @@ namespace UnityMultiplayerDRPlugin.DTOs
             InventoryID = e.Reader.ReadInt32();
             Size = e.Reader.ReadInt32();
             InventoryItems = e.Reader.ReadSerializables<InventoryItemDTO>();
+            foreach(InventoryItemDTO item in InventoryItems)
+            {
+                item._inventoryid = InventoryID;
+            }
         }
 
         public void Serialize(SerializeEvent e)
@@ -113,7 +118,7 @@ namespace UnityMultiplayerDRPlugin.DTOs
         }
     }
 
-    class ItemDTO : IDarkRiftSerializable
+    public class ItemDTO : IDarkRiftSerializable
     {
         public int Id { get; set; }
         public string Name { get; set; }
