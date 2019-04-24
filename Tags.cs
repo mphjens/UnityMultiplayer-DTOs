@@ -36,4 +36,5 @@
 
     internal static readonly ushort LoginTag = 27;
     internal static readonly ushort FireBulletTag = 28;
+    internal static readonly ushort BulletHitTag = 29;
 }
