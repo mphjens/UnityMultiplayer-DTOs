@@ -42,7 +42,7 @@ namespace UnityMultiplayerDRPlugin.DTOs
         }
     }
 
-    class BulletHitDTO : IDarkRiftSerializable
+    public class BulletHitDTO : IDarkRiftSerializable
     {
 
         public ushort bulletId = 0;
