@@ -34,5 +34,6 @@
     internal static readonly ushort TrashInventoryItem = 25;
     internal static readonly ushort GetInventory = 26; //#V
 
-    internal static readonly ushort LoginTag = 27; //#
+    internal static readonly ushort LoginTag = 27;
+    internal static readonly ushort FireBulletTag = 28;
 }
