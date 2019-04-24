@@ -25,8 +25,8 @@ namespace UnityMultiplayerDRPlugin.DTOs
             ownerPlayerID = e.Reader.ReadUInt16();
             
 
-            Origin = new UMVector3(e.Reader.ReadUInt16(), e.Reader.ReadUInt16(), e.Reader.ReadUInt16());
-            Velocity = new UMVector3(e.Reader.ReadUInt16(), e.Reader.ReadUInt16(), e.Reader.ReadUInt16());
+            Origin = new UMVector3(e.Reader.ReadSingle(), e.Reader.ReadSingle(), e.Reader.ReadSingle());
+            Velocity = new UMVector3(e.Reader.ReadSingle(), e.Reader.ReadSingle(), e.Reader.ReadSingle());
             UseGravity = e.Reader.ReadBoolean();
         }
 
@@ -53,8 +53,8 @@ namespace UnityMultiplayerDRPlugin.DTOs
         {
             bulletId = e.Reader.ReadUInt16();
 
-            Origin = new UMVector3(e.Reader.ReadUInt16(), e.Reader.ReadUInt16(), e.Reader.ReadUInt16());
-            Rotation = new UMVector3(e.Reader.ReadUInt16(), e.Reader.ReadUInt16(), e.Reader.ReadUInt16());
+            Origin = new UMVector3(e.Reader.ReadSingle(), e.Reader.ReadSingle(), e.Reader.ReadSingle());
+            Rotation = new UMVector3(e.Reader.ReadSingle(), e.Reader.ReadSingle(), e.Reader.ReadSingle());
         }
 
         public void Serialize(SerializeEvent e)
