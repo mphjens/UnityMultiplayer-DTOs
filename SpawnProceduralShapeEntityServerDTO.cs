@@ -4,7 +4,7 @@ using System;
 
 namespace UnityMultiplayerDRPlugin.DTOs
 {
-	internal class SpawnProceduralShapeEntityServerDTO : IDarkRiftSerializable
+	public class SpawnProceduralShapeEntityServerDTO : IDarkRiftSerializable
 	{
 		public uint ID;
 

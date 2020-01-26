@@ -4,7 +4,7 @@ using System;
 
 namespace UnityMultiplayerDRPlugin.DTOs
 {
-	internal class SpawnProceduralShapeEntityClientDTO : IDarkRiftSerializable
+	public class SpawnProceduralShapeEntityClientDTO : IDarkRiftSerializable
 	{
 		public ProceduralEntityType type;
 

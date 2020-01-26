@@ -3,7 +3,7 @@ using System;
 
 namespace UnityMultiplayerDRPlugin.DTOs
 {
-	internal class PlayerUpdateServerDTO : IDarkRiftSerializable
+	public class PlayerUpdateServerDTO : IDarkRiftSerializable
 	{
 		public ushort ID;
 

@@ -3,7 +3,7 @@ using System;
 
 namespace UnityMultiplayerDRPlugin.DTOs
 {
-	internal class DamageHurtableClientDTO : IDarkRiftSerializable
+	public class DamageHurtableClientDTO : IDarkRiftSerializable
 	{
 		public ushort VictimID;
 

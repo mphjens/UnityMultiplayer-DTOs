@@ -3,7 +3,7 @@ using System;
 
 namespace UnityMultiplayerDRPlugin.DTOs
 {
-	internal class WeaponSwitchServerDTO : IDarkRiftSerializable
+	public class WeaponSwitchServerDTO : IDarkRiftSerializable
 	{
 		public ushort playerId;
 

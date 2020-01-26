@@ -3,7 +3,7 @@ using System;
 
 namespace UnityMultiplayerDRPlugin.DTOs
 {
-	internal class CreateWorldClientDTO : IDarkRiftSerializable
+	public class CreateWorldClientDTO : IDarkRiftSerializable
 	{
 		public ushort SceneEntityID;
 

@@ -3,7 +3,7 @@ using System;
 
 namespace UnityMultiplayerDRPlugin.DTOs
 {
-	internal class JoinWorldServerDTO : IDarkRiftSerializable
+	public class JoinWorldServerDTO : IDarkRiftSerializable
 	{
 		public bool Success;
 

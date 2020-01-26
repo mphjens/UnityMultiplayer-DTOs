@@ -1,6 +1,6 @@
 using System;
 
-internal static class Tags
+public static class Tags
 {
     public static readonly ushort SpawnPlayerTag = 0;
     public static readonly ushort PlayerUpdateTag = 1;
@@ -14,29 +14,29 @@ internal static class Tags
     public static readonly ushort PhysicsUpdateEntityTag = 8;
     public static readonly ushort SetPhysicsEntityTag = 9;
 
-    internal static readonly ushort WeaponFireStartTag = 10;
-    internal static readonly ushort WeaponFireEndTag = 11;
-    internal static readonly ushort WeaponSwitchTag = 12;
-    internal static readonly ushort WeaponActionTag = 13;
+    public static readonly ushort WeaponFireStartTag = 10;
+    public static readonly ushort WeaponFireEndTag = 11;
+    public static readonly ushort WeaponSwitchTag = 12;
+    public static readonly ushort WeaponActionTag = 13;
 
-    internal static readonly ushort DamageHurtableTag = 14;
+    public static readonly ushort DamageHurtableTag = 14;
 
-    internal static readonly ushort SpawnProceduralShapeEntityTag = 15;
+    public static readonly ushort SpawnProceduralShapeEntityTag = 15;
 
-    internal static readonly ushort JoinWorldMessage = 16;
-    internal static readonly ushort GetWorldsMessage = 18;
-    internal static readonly ushort CreateWorldMessage = 19;
+    public static readonly ushort JoinWorldMessage = 16;
+    public static readonly ushort GetWorldsMessage = 18;
+    public static readonly ushort CreateWorldMessage = 19;
 
-    internal static readonly ushort SetEntityParentTag = 20;
-    internal static readonly ushort UseEntityTag = 21;
+    public static readonly ushort SetEntityParentTag = 20;
+    public static readonly ushort UseEntityTag = 21;
 
-    internal static readonly ushort GetItems = 22; //#
-    internal static readonly ushort AddInventoryItem = 23;
-    internal static readonly ushort TransferInventoryItem = 24; //#
-    internal static readonly ushort TrashInventoryItem = 25;
-    internal static readonly ushort GetInventory = 26; //#V
+    public static readonly ushort GetItems = 22; //#
+    public static readonly ushort AddInventoryItem = 23;
+    public static readonly ushort TransferInventoryItem = 24; //#
+    public static readonly ushort TrashInventoryItem = 25;
+    public static readonly ushort GetInventory = 26; //#V
 
-    internal static readonly ushort LoginTag = 27;
-    internal static readonly ushort FireBulletTag = 28;
-    internal static readonly ushort BulletHitTag = 29;
+    public static readonly ushort LoginTag = 27;
+    public static readonly ushort FireBulletTag = 28;
+    public static readonly ushort BulletHitTag = 29;
 }

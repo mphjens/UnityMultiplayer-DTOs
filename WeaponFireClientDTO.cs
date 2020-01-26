@@ -3,7 +3,7 @@ using System;
 
 namespace UnityMultiplayerDRPlugin.DTOs
 {
-	internal class WeaponFireClientDTO : IDarkRiftSerializable
+	public class WeaponFireClientDTO : IDarkRiftSerializable
 	{
 		public ushort fireNum;
 
