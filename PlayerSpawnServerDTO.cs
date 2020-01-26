@@ -1,42 +1,44 @@
-﻿using DarkRift;
+using DarkRift;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace UnityMultiplayerDRPlugin.DTOs
 {
-    class PlayerSpawnServerDTO : IDarkRiftSerializable
-    {
-        public ushort ID;
-        public ushort entityID;
+	internal class PlayerSpawnServerDTO : IDarkRiftSerializable
+	{
+		public ushort ID;
 
-        public float x, y, z;
-        public float health;
-        
+		public ushort entityID;
 
-        public void Deserialize(DeserializeEvent e)
-        {
-            ID = e.Reader.ReadUInt16();
-            entityID = e.Reader.ReadUInt16();
+		public float x;
 
-            x = e.Reader.ReadSingle();
-            y = e.Reader.ReadSingle();
-            z = e.Reader.ReadSingle();
+		public float y;
 
-            health = e.Reader.ReadSingle();
-        }
+		public float z;
 
-        public void Serialize(SerializeEvent e)
-        {
-            e.Writer.Write(ID);
-            e.Writer.Write(entityID);
+		public float health;
 
-            e.Writer.Write(x);
-            e.Writer.Write(y);
-            e.Writer.Write(z);
+		public PlayerSpawnServerDTO()
+		{
+		}
 
-            e.Writer.Write(health);
-            
-        }
-    }
+		public void Deserialize(DeserializeEvent e)
+		{
+			this.ID = e.Reader.ReadUInt16();
+			this.entityID = e.Reader.ReadUInt16();
+			this.x = e.Reader.ReadSingle();
+			this.y = e.Reader.ReadSingle();
+			this.z = e.Reader.ReadSingle();
+			this.health = e.Reader.ReadSingle();
+		}
+
+		public void Serialize(SerializeEvent e)
+		{
+			e.Writer.Write(this.ID);
+			e.Writer.Write(this.entityID);
+			e.Writer.Write(this.x);
+			e.Writer.Write(this.y);
+			e.Writer.Write(this.z);
+			e.Writer.Write(this.health);
+		}
+	}
 }

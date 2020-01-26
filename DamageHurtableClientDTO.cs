@@ -1,26 +1,28 @@
-﻿using DarkRift;
+using DarkRift;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace UnityMultiplayerDRPlugin.DTOs
 {
-    class DamageHurtableClientDTO : IDarkRiftSerializable
-    {
-        public ushort VictimID;
-        public float damage;
-        
+	internal class DamageHurtableClientDTO : IDarkRiftSerializable
+	{
+		public ushort VictimID;
 
-        public void Deserialize(DeserializeEvent e)
-        {
-            VictimID = e.Reader.ReadUInt16();
-            damage = e.Reader.ReadSingle();
-        }
+		public float damage;
 
-        public void Serialize(SerializeEvent e)
-        {
-            e.Writer.Write(VictimID);
-            e.Writer.Write(damage);            
-        }
-    }
+		public DamageHurtableClientDTO()
+		{
+		}
+
+		public void Deserialize(DeserializeEvent e)
+		{
+			this.VictimID = e.Reader.ReadUInt16();
+			this.damage = e.Reader.ReadSingle();
+		}
+
+		public void Serialize(SerializeEvent e)
+		{
+			e.Writer.Write(this.VictimID);
+			e.Writer.Write(this.damage);
+		}
+	}
 }

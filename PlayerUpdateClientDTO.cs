@@ -1,59 +1,60 @@
-﻿using DarkRift;
+using DarkRift;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace UnityMultiplayerDRPlugin.DTOs
 {
-    public enum UMPlayerTrigger : ushort
-    {
-        Jump,
-        Reload,
-        OneHanded_Gun_Fire,
-        TwoHanded_Gun_Fire,
-        OneHanded_Melee_Swing,
-        TwoHanded_Melee_Swing,
-    }
+	internal class PlayerUpdateClientDTO : IDarkRiftSerializable
+	{
+		public float x;
 
-    class PlayerUpdateClientDTO : IDarkRiftSerializable
-    {
-        public float x, y, z;
-        public float rx, ry, rz;
-        public float vx, vy, vz;
-        public ushort[] triggerQueue;
+		public float y;
 
-        public void Deserialize(DeserializeEvent e)
-        {
-            x = e.Reader.ReadSingle();
-            y = e.Reader.ReadSingle();
-            z = e.Reader.ReadSingle();
+		public float z;
 
-            rx = e.Reader.ReadSingle();
-            ry = e.Reader.ReadSingle();
-            rz = e.Reader.ReadSingle();
+		public float rx;
 
-            vx = e.Reader.ReadSingle();
-            vy = e.Reader.ReadSingle();
-            vz = e.Reader.ReadSingle();
+		public float ry;
 
-            triggerQueue = e.Reader.ReadUInt16s();
-        }
+		public float rz;
 
-        public void Serialize(SerializeEvent e)
-        {
-            e.Writer.Write(x);
-            e.Writer.Write(y);
-            e.Writer.Write(z);
+		public float vx;
 
-            e.Writer.Write(rx);
-            e.Writer.Write(ry);
-            e.Writer.Write(rz);
+		public float vy;
 
-            e.Writer.Write(vx);
-            e.Writer.Write(vy);
-            e.Writer.Write(vz);
+		public float vz;
 
-            e.Writer.Write(this.triggerQueue);
-        }
-    }
+		public ushort[] triggerQueue;
+
+		public PlayerUpdateClientDTO()
+		{
+		}
+
+		public void Deserialize(DeserializeEvent e)
+		{
+			this.x = e.Reader.ReadSingle();
+			this.y = e.Reader.ReadSingle();
+			this.z = e.Reader.ReadSingle();
+			this.rx = e.Reader.ReadSingle();
+			this.ry = e.Reader.ReadSingle();
+			this.rz = e.Reader.ReadSingle();
+			this.vx = e.Reader.ReadSingle();
+			this.vy = e.Reader.ReadSingle();
+			this.vz = e.Reader.ReadSingle();
+			this.triggerQueue = e.Reader.ReadUInt16s();
+		}
+
+		public void Serialize(SerializeEvent e)
+		{
+			e.Writer.Write(this.x);
+			e.Writer.Write(this.y);
+			e.Writer.Write(this.z);
+			e.Writer.Write(this.rx);
+			e.Writer.Write(this.ry);
+			e.Writer.Write(this.rz);
+			e.Writer.Write(this.vx);
+			e.Writer.Write(this.vy);
+			e.Writer.Write(this.vz);
+			e.Writer.Write(this.triggerQueue);
+		}
+	}
 }

@@ -1,27 +1,65 @@
-﻿static class Tags
+using System;
+
+internal static class Tags
 {
-    public static readonly ushort SpawnPlayerTag = 0;
-    public static readonly ushort PlayerUpdateTag = 1;
-    public static readonly ushort DespawnPlayerTag = 2;
+	public readonly static ushort SpawnPlayerTag;
 
-    public static readonly ushort SpawnEntityTag = 3;
-    public static readonly ushort TransformEntityTag = 4;
-    public static readonly ushort SetStateEntityTag = 5;
-    public static readonly ushort DespawnEntityTag = 6;
-    public static readonly ushort SetEntityPhysicsHost = 7;
-    public static readonly ushort PhysicsUpdateEntityTag = 8;
-    public static readonly ushort SetPhysicsEntityTag = 9;
+	public readonly static ushort PlayerUpdateTag;
 
-    internal static readonly ushort WeaponFireStartTag = 10;
-    internal static readonly ushort WeaponFireEndTag = 11;
-    internal static readonly ushort WeaponSwitchTag = 12;
-    internal static readonly ushort WeaponActionTag = 13;
+	public readonly static ushort DespawnPlayerTag;
 
-    internal static readonly ushort DamageHurtableTag = 14;
+	public readonly static ushort SpawnEntityTag;
 
-    internal static readonly ushort SpawnProceduralShapeEntityTag = 15;
+	public readonly static ushort TransformEntityTag;
 
-    internal static readonly ushort JoinWorldMessage = 16;
-    internal static readonly ushort GetWorldsMessage = 18;
-    internal static readonly ushort CreateWorldMessage = 19;
+	public readonly static ushort SetStateEntityTag;
+
+	public readonly static ushort DespawnEntityTag;
+
+	public readonly static ushort SetEntityPhysicsHost;
+
+	public readonly static ushort PhysicsUpdateEntityTag;
+
+	public readonly static ushort SetPhysicsEntityTag;
+
+	internal readonly static ushort WeaponFireStartTag;
+
+	internal readonly static ushort WeaponFireEndTag;
+
+	internal readonly static ushort WeaponSwitchTag;
+
+	internal readonly static ushort WeaponActionTag;
+
+	internal readonly static ushort DamageHurtableTag;
+
+	internal readonly static ushort SpawnProceduralShapeEntityTag;
+
+	internal readonly static ushort JoinWorldMessage;
+
+	internal readonly static ushort GetWorldsMessage;
+
+	internal readonly static ushort CreateWorldMessage;
+
+	static Tags()
+	{
+		Tags.SpawnPlayerTag = 0;
+		Tags.PlayerUpdateTag = 1;
+		Tags.DespawnPlayerTag = 2;
+		Tags.SpawnEntityTag = 3;
+		Tags.TransformEntityTag = 4;
+		Tags.SetStateEntityTag = 5;
+		Tags.DespawnEntityTag = 6;
+		Tags.SetEntityPhysicsHost = 7;
+		Tags.PhysicsUpdateEntityTag = 8;
+		Tags.SetPhysicsEntityTag = 9;
+		Tags.WeaponFireStartTag = 10;
+		Tags.WeaponFireEndTag = 11;
+		Tags.WeaponSwitchTag = 12;
+		Tags.WeaponActionTag = 13;
+		Tags.DamageHurtableTag = 14;
+		Tags.SpawnProceduralShapeEntityTag = 15;
+		Tags.JoinWorldMessage = 16;
+		Tags.GetWorldsMessage = 18;
+		Tags.CreateWorldMessage = 19;
+	}
 }

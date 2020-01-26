@@ -3,22 +3,22 @@ using System;
 
 namespace UnityMultiplayerDRPlugin.DTOs
 {
-	internal class WeaponFireClientDTO : IDarkRiftSerializable
+	internal class JoinWorldClientDTO : IDarkRiftSerializable
 	{
-		public ushort fireNum;
+		public string WorldName;
 
-		public WeaponFireClientDTO()
+		public JoinWorldClientDTO()
 		{
 		}
 
 		public void Deserialize(DeserializeEvent e)
 		{
-			this.fireNum = e.Reader.ReadUInt16();
+			this.WorldName = e.Reader.ReadString();
 		}
 
 		public void Serialize(SerializeEvent e)
 		{
-			e.Writer.Write(this.fireNum);
+			e.Writer.Write(this.WorldName);
 		}
 	}
 }

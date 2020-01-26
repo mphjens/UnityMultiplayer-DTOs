@@ -1,25 +1,28 @@
-﻿using DarkRift;
+using DarkRift;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace UnityMultiplayerDRPlugin.DTOs
 {
-    class WeaponSwitchClientDTO : IDarkRiftSerializable
-    {
-        public ushort weaponEntityId;
-        public ushort weaponSlot;
+	internal class WeaponSwitchClientDTO : IDarkRiftSerializable
+	{
+		public ushort weaponEntityId;
 
-        public void Deserialize(DeserializeEvent e)
-        {
-            weaponEntityId = e.Reader.ReadUInt16();
-            weaponSlot = e.Reader.ReadUInt16();
-        }
+		public ushort weaponSlot;
 
-        public void Serialize(SerializeEvent e)
-        {
-            e.Writer.Write(weaponEntityId);
-            e.Writer.Write(weaponSlot);
-        }
-    }
+		public WeaponSwitchClientDTO()
+		{
+		}
+
+		public void Deserialize(DeserializeEvent e)
+		{
+			this.weaponEntityId = e.Reader.ReadUInt16();
+			this.weaponSlot = e.Reader.ReadUInt16();
+		}
+
+		public void Serialize(SerializeEvent e)
+		{
+			e.Writer.Write(this.weaponEntityId);
+			e.Writer.Write(this.weaponSlot);
+		}
+	}
 }

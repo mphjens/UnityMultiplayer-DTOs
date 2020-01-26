@@ -1,25 +1,28 @@
-﻿using DarkRift;
+using DarkRift;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace UnityMultiplayerDRPlugin.DTOs
 {
-    class WeaponFireServerDTO : IDarkRiftSerializable
-    {
-        public ushort playerID;
-        public ushort fireNum;
+	internal class WeaponFireServerDTO : IDarkRiftSerializable
+	{
+		public ushort playerID;
 
-        public void Deserialize(DeserializeEvent e)
-        {
-            playerID = e.Reader.ReadUInt16();
-            fireNum = e.Reader.ReadUInt16();
-        }
+		public ushort fireNum;
 
-        public void Serialize(SerializeEvent e)
-        {
-            e.Writer.Write(playerID);
-            e.Writer.Write(fireNum);
-        }
-    }
+		public WeaponFireServerDTO()
+		{
+		}
+
+		public void Deserialize(DeserializeEvent e)
+		{
+			this.playerID = e.Reader.ReadUInt16();
+			this.fireNum = e.Reader.ReadUInt16();
+		}
+
+		public void Serialize(SerializeEvent e)
+		{
+			e.Writer.Write(this.playerID);
+			e.Writer.Write(this.fireNum);
+		}
+	}
 }
