@@ -2,7 +2,7 @@ using System;
 
 public static class Tags
 {
-    public static readonly ushort SpawnPlayerTag = 0;
+    public static readonly ushort SpawnPlayerTag = 999; //Changed from 0 because corrupted messages sometime come in with message tag 0
     public static readonly ushort PlayerUpdateTag = 1;
     public static readonly ushort DespawnPlayerTag = 2;
 
