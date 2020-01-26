@@ -3,7 +3,7 @@ using System;
 
 namespace UnityMultiplayerDRPlugin.DTOs
 {
-    class PlayerSpawnServerDTO : IDarkRiftSerializable
+    public class PlayerSpawnServerDTO : IDarkRiftSerializable
     {
         public ushort ID;
         public ushort entityID;
