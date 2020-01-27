@@ -54,7 +54,7 @@ namespace UnityMultiplayerDRPlugin.DTOs
         public uint parentID;
         public ushort EntityId;
         public ushort State;
-        public string WorldEntityUUID; // if != "" It's spawned in the scene so we need to alter a exsisting object when we get a spawn message for this entity
+        public string WorldEntityUUID = ""; // if != "" It's spawned in the scene so we need to alter a exsisting object when we get a spawn message for this entity
         public bool hasPhysics;
         public UMVector3 position;
         public UMVector3 rotation;
