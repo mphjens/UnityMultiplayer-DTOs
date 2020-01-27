@@ -9,6 +9,8 @@ namespace UnityMultiplayerDRPlugin.DTOs
 		OneHanded_Gun_Fire,
 		TwoHanded_Gun_Fire,
 		OneHanded_Melee_Swing,
-		TwoHanded_Melee_Swing
+		TwoHanded_Melee_Swing,
+        CrouchStart,
+        CrouchEnd
 	}
 }
