@@ -24,6 +24,11 @@ namespace UnityMultiplayerDRPlugin.DTOs
 			this.z = z;
 		}
 
+        public override string ToString()
+        {
+            return $"(X: {x}, Y: {y}, Z: {z})";
+        }
+
         public void Deserialize(DeserializeEvent e)
         {
             x = e.Reader.ReadSingle();

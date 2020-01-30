@@ -56,6 +56,7 @@ namespace UnityMultiplayerDRPlugin.DTOs
         public ushort State;
         public string WorldEntityUUID = ""; // if != "" It's spawned in the scene so we need to alter a exsisting object when we get a spawn message for this entity
         public bool hasPhysics;
+        public bool isKinematic;
         public UMVector3 position;
         public UMVector3 rotation;
         public UMVector3 scale;

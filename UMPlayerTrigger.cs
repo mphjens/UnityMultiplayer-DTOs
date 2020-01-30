@@ -11,6 +11,7 @@ namespace UnityMultiplayerDRPlugin.DTOs
 		OneHanded_Melee_Swing,
 		TwoHanded_Melee_Swing,
         CrouchStart,
-        CrouchEnd
+        CrouchEnd,
+        StopMoving
 	}
 }
