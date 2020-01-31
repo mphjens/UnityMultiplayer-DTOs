@@ -5,6 +5,7 @@ namespace UnityMultiplayerDRPlugin.DTOs
 {
     class PlayerUpdateClientDTO : IDarkRiftSerializable
     {
+        public ushort PlayerID;
         public float x, y, z;
         public float rx, ry, rz;
         public float vx, vy, vz;
@@ -12,6 +13,7 @@ namespace UnityMultiplayerDRPlugin.DTOs
 
         public void Deserialize(DeserializeEvent e)
         {
+            PlayerID = e.Reader.ReadUInt16();
             x = e.Reader.ReadSingle();
             y = e.Reader.ReadSingle();
             z = e.Reader.ReadSingle();
@@ -29,6 +31,8 @@ namespace UnityMultiplayerDRPlugin.DTOs
 
         public void Serialize(SerializeEvent e)
         {
+            e.Writer.Write(PlayerID);
+
             e.Writer.Write(x);
             e.Writer.Write(y);
             e.Writer.Write(z);
