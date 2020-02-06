@@ -42,7 +42,8 @@ namespace UnityMultiplayerDRPlugin.Entities
 
             if(existingProperty == null)
             {
-                existingProperty = property;
+                ComponentPropertyDTO nProperty = property;
+                this.Properties.Add(nProperty);
             }
             else
             {

@@ -30,6 +30,7 @@ public static class Tags
     public static readonly ushort SetEntityParentTag = 20;
     public static readonly ushort UseEntityTag = 21;
 
+    //TODO: Reimplment the handling of these messages
     public static readonly ushort GetItems = 22; //#
     public static readonly ushort AddInventoryItem = 23;
     public static readonly ushort TransferInventoryItem = 24; //#
@@ -39,8 +40,10 @@ public static class Tags
     public static readonly ushort LoginTag = 27;
     public static readonly ushort FireBulletTag = 28;
     public static readonly ushort BulletHitTag = 29;
+    //
 
-    public static readonly ushort AddComponentTag = 27;
-    public static readonly ushort RemoveComponentTag = 28;
-    public static readonly ushort SetComponentPropertyTag = 29;
+
+    public static readonly ushort AddComponentTag = 30;
+    public static readonly ushort RemoveComponentTag = 31;
+    public static readonly ushort SetComponentPropertyTag = 32;
 }
