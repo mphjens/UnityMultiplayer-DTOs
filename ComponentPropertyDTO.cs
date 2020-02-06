@@ -12,13 +12,13 @@ namespace Assets.Recover.Scripts.Assembly_CSharp.Core.Entity
     public class ComponentPropertyDTO : DarkRift.IDarkRiftSerializable
     {
         public uint ComponentID;
-        public string PropertyName { get; private set; }
+        public string PropertyName { get; set; }
         //public object Value { get; private set; }
         //public Type vType { get; private set; }
 
-        public string TypeName;
-        public byte[] RawValue;
-        public int RawValueLength;
+        public string TypeName; //Is set be setValueObject
+        public byte[] RawValue; //Is set by setValueObject
+        public int RawValueLength; //Is set by setValueObject
 
         public ComponentPropertyDTO() { }
 
@@ -46,6 +46,8 @@ namespace Assets.Recover.Scripts.Assembly_CSharp.Core.Entity
 
                 RawValue = ms.ToArray();
                 RawValueLength = RawValue.Length;
+
+                TypeName = valueObj.GetType().FullName;
             }
         }
 
