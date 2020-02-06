@@ -3,7 +3,7 @@ using DarkRift;
 
 namespace UnityMultiplayerDRPlugin.DTOs
 {
-	public class UMVector3 : DarkRift.IDarkRiftSerializable
+	public class UMVector4 : DarkRift.IDarkRiftSerializable
     {
 		public float x;
 
@@ -11,18 +11,21 @@ namespace UnityMultiplayerDRPlugin.DTOs
 
 		public float z;
 
-        public UMVector3(){}
+        public float w;
 
-        public UMVector3(float x, float y, float z)
+        public UMVector4(){}
+
+        public UMVector4(float x, float y, float z, float w)
 		{
 			this.x = x;
 			this.y = y;
 			this.z = z;
+            this.w = w;
 		}
 
         public override string ToString()
         {
-            return $"(X: {x}, Y: {y}, Z: {z})";
+            return $"(X: {x}, Y: {y}, Z: {z}, Z: {w})";
         }
 
         public void Deserialize(DeserializeEvent e)
@@ -30,6 +33,7 @@ namespace UnityMultiplayerDRPlugin.DTOs
             x = e.Reader.ReadSingle();
             y = e.Reader.ReadSingle();
             z = e.Reader.ReadSingle();
+            w = e.Reader.ReadSingle();
 
         }
 
@@ -38,6 +42,7 @@ namespace UnityMultiplayerDRPlugin.DTOs
             e.Writer.Write(x);
             e.Writer.Write(y);
             e.Writer.Write(z);
+            e.Writer.Write(w);
         }
     }
 }
