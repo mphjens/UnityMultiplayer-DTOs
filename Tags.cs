@@ -39,4 +39,8 @@ public static class Tags
     public static readonly ushort LoginTag = 27;
     public static readonly ushort FireBulletTag = 28;
     public static readonly ushort BulletHitTag = 29;
+
+    public static readonly ushort AddComponentTag = 27;
+    public static readonly ushort RemoveComponentTag = 28;
+    public static readonly ushort SetComponentPropertyTag = 29;
 }

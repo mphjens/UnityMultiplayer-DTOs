@@ -11,53 +11,60 @@ namespace Assets.Recover.Scripts.Assembly_CSharp.Core.Entity
 {
     public class ComponentPropertyDTO : DarkRift.IDarkRiftSerializable
     {
+        public uint ComponentID;
         public string PropertyName { get; private set; }
-        public object Value { get; private set; }
-        public Type vType { get; private set; }
+        //public object Value { get; private set; }
+        //public Type vType { get; private set; }
 
-        private string typename;
-        private byte[] rawValue;
-        private int rawValueLength;
+        public string TypeName;
+        public byte[] RawValue;
+        public int RawValueLength;
 
         public ComponentPropertyDTO() { }
 
-        public void Deserialize(DeserializeEvent e)
+        public object ConstructValue()
         {
-            PropertyName = e.Reader.ReadString();
-            typename = e.Reader.ReadString();
-            rawValueLength = e.Reader.ReadInt32();
-            rawValue = e.Reader.ReadRaw(rawValueLength);
-
-
             //Deserialize Value obj from raw bytearray
-            using (MemoryStream memStream = new MemoryStream()){
+            using (MemoryStream memStream = new MemoryStream())
+            {
                 BinaryFormatter binForm = new BinaryFormatter();
-                memStream.Write(rawValue, 0, rawValue.Length);
+                memStream.Write(RawValue, 0, RawValue.Length);
                 memStream.Seek(0, SeekOrigin.Begin);
 
-                this.Value = (Object)binForm.Deserialize(memStream);
+                return (Object)binForm.Deserialize(memStream);
             }
-               
-            this.vType = Type.GetType(typename);
         }
 
-        public void Serialize(SerializeEvent e)
+        public void setValueObject(object valueObj)
         {
-            if(rawValue == null)
+            if (RawValue == null)
             {
                 //Convert Value to raw byte array
                 BinaryFormatter bf = new BinaryFormatter();
                 MemoryStream ms = new MemoryStream();
-                bf.Serialize(ms, Value);
+                bf.Serialize(ms, valueObj);
 
-                rawValue = ms.ToArray();
-                rawValueLength = rawValue.Length;
+                RawValue = ms.ToArray();
+                RawValueLength = RawValue.Length;
             }
+        }
 
+        public void Deserialize(DeserializeEvent e)
+        {
+            ComponentID = e.Reader.ReadUInt32();
+            PropertyName = e.Reader.ReadString();
+            TypeName = e.Reader.ReadString();
+            RawValueLength = e.Reader.ReadInt32();
+            RawValue = e.Reader.ReadRaw(RawValueLength);
+        }
+
+        public void Serialize(SerializeEvent e)
+        {
+            e.Writer.Write(ComponentID);
             e.Writer.Write(PropertyName);
-            e.Writer.Write(vType.FullName);
-            e.Writer.Write(rawValueLength);
-            e.Writer.Write(rawValue);
+            e.Writer.Write(TypeName);
+            e.Writer.Write(RawValueLength);
+            e.Writer.Write(RawValue);
         }
 
         
