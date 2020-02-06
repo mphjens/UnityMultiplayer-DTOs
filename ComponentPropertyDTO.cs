@@ -66,7 +66,7 @@ namespace Assets.Recover.Scripts.Assembly_CSharp.Core.Entity
             e.Writer.Write(PropertyName);
             e.Writer.Write(TypeName);
             e.Writer.Write(RawValueLength);
-            e.Writer.Write(RawValue);
+            e.Writer.WriteRaw(RawValue, 0, RawValueLength);
         }
 
         
