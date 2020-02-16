@@ -14,6 +14,7 @@ namespace UnityMultiplayerDRPlugin.DTOs
         public ushort State;
         public bool hasPhysics;
         public string WorldEntityUUID = "";
+        public UMComponentDTO[] components;
 
         public uint parentID;
         public UMVector3 position;
@@ -32,6 +33,8 @@ namespace UnityMultiplayerDRPlugin.DTOs
             position = new UMVector3(e.Reader.ReadSingle(), e.Reader.ReadSingle(), e.Reader.ReadSingle());
             rotation = new UMVector3(e.Reader.ReadSingle(), e.Reader.ReadSingle(), e.Reader.ReadSingle());
             scale = new UMVector3(e.Reader.ReadSingle(), e.Reader.ReadSingle(), e.Reader.ReadSingle());
+
+            components = e.Reader.ReadSerializables<UMComponentDTO>();
         }
 
         public void Serialize(SerializeEvent e)
@@ -45,6 +48,8 @@ namespace UnityMultiplayerDRPlugin.DTOs
             e.Writer.Write(position.x); e.Writer.Write(position.y); e.Writer.Write(position.z);
             e.Writer.Write(rotation.x); e.Writer.Write(rotation.y); e.Writer.Write(rotation.z);
             e.Writer.Write(scale.x); e.Writer.Write(scale.y); e.Writer.Write(scale.z);
+
+            e.Writer.Write(components);
         }
     }
 
