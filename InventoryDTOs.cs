@@ -1,4 +1,5 @@
 ﻿using DarkRift;
+using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,12 +8,14 @@ namespace UnityMultiplayerDRPlugin.DTOs
 {
     public class InventoryItemDTO : IDarkRiftSerializable
     {
+        [PrimaryKey, AutoIncrement]
         public int ID { get; set; }
+        [Indexed]
         public int ItemID { get; set; }
         public int Position { get; set; }
         public int Count { get; set; }
 
-        public int _inventoryid; //not sent over network, but set by GetInventoryServerDTO;
+        public int _inventoryid;
 
         public void Deserialize(DeserializeEvent e)
         {
@@ -46,6 +49,13 @@ namespace UnityMultiplayerDRPlugin.DTOs
         {
             e.Writer.Write(InventoryID);
         }
+    }
+
+    public class InventoryDTO
+    {
+        public int Id { get; set; }
+        public int UserID { get; set; } //has a value when it's a personal inventory
+        public int Size { get; set; }
     }
 
     public class GetInventoryServerDTO : IDarkRiftSerializable
@@ -137,6 +147,28 @@ namespace UnityMultiplayerDRPlugin.DTOs
             e.Writer.Write(Name);
             e.Writer.Write(EntityID);
         }
+    }
+
+    public class GetItemsServerDTO : IDarkRiftSerializable
+    {
+        public ItemDTO[] Items;
+
+        public void Deserialize(DeserializeEvent e)
+        {
+            Items = e.Reader.ReadSerializables<ItemDTO>();
+        }
+
+        public void Serialize(SerializeEvent e)
+        {
+            e.Writer.Write(Items);
+        }
+    }
+
+    public class UserDTO
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Password { get; set; } // TODO: reimplement this more safely
     }
 
 
