@@ -2,6 +2,7 @@ using System;
 
 public static class Tags
 {
+    //This class should be an enum
     public static readonly ushort SpawnPlayerTag = 999; //Changed from 0 because corrupted messages sometime come in with message tag 0
     public static readonly ushort PlayerUpdateTag = 1;
     public static readonly ushort DespawnPlayerTag = 2;
@@ -36,8 +37,11 @@ public static class Tags
     public static readonly ushort TransferInventoryItem = 24; //#
     public static readonly ushort TrashInventoryItem = 25;
     public static readonly ushort GetInventory = 26; //#V
+    public static readonly ushort SubscribeInventory = 33; //#V
+    public static readonly ushort OnInventoryUpdate = 35; //#V
 
     public static readonly ushort LoginTag = 27;
+    public static readonly ushort LoginCharacter = 34;
     public static readonly ushort FireBulletTag = 28;
     public static readonly ushort BulletHitTag = 29;
     //
