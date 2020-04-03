@@ -55,20 +55,17 @@ namespace UnityMultiplayerDRPlugin.DTOs
     public class InventoryDTO : IDarkRiftSerializable
     {
         public int Id { get; set; }
-        public int UserID { get; set; } //has a value when it's a personal inventory
         public int Size { get; set; }
 
         public void Deserialize(DeserializeEvent e)
         {
             Id = e.Reader.ReadInt32();
-            UserID = e.Reader.ReadInt32();
             Size = e.Reader.ReadInt32();
         }
 
         public void Serialize(SerializeEvent e)
         {
             e.Writer.Write(Id);
-            e.Writer.Write(UserID);
             e.Writer.Write(Size);
         }
     }
