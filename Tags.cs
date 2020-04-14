@@ -38,6 +38,7 @@ public static class Tags
     public static readonly ushort TrashInventoryItem = 25;
     public static readonly ushort GetInventory = 26; //#V
     public static readonly ushort SubscribeInventory = 33; //#V
+    public static readonly ushort UnsubscribeInventory = 36; //#V
     public static readonly ushort OnInventoryUpdate = 35; //#V
 
     public static readonly ushort LoginTag = 27;
