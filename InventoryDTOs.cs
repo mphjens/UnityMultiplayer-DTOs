@@ -356,6 +356,10 @@ namespace UnityMultiplayerDRPlugin.DTOs
         {
             e.Writer.Write(Id);
             e.Writer.Write(Name);
+            e.Writer.Write(InventoryID);
+            e.Writer.Write(Level);
+            e.Writer.Write(Experience);
+            e.Writer.Write(Money);
         }
     }
 
