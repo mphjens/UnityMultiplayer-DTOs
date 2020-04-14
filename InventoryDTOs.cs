@@ -221,15 +221,18 @@ namespace UnityMultiplayerDRPlugin.DTOs
 
     public class GetItemsServerDTO : IDarkRiftSerializable
     {
+        public int InventoryID;
         public ItemDTO[] Items;
 
         public void Deserialize(DeserializeEvent e)
         {
+            InventoryID = e.Reader.ReadInt32();
             Items = e.Reader.ReadSerializables<ItemDTO>();
         }
 
         public void Serialize(SerializeEvent e)
         {
+            e.Writer.Write(InventoryID);
             e.Writer.Write(Items);
         }
     }
