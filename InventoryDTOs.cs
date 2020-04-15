@@ -91,14 +91,12 @@ namespace UnityMultiplayerDRPlugin.DTOs
     public class TransferItemClientDTO : IDarkRiftSerializable
     {
         public int InventoryItemID { get; set; }
-        public int SourceInventoryID { get; set; }
         public int DestinationInventoryID { get; set; }
         public int Position { get; set; }
 
         public void Deserialize(DeserializeEvent e)
         {
             InventoryItemID = e.Reader.ReadInt32();
-            SourceInventoryID = e.Reader.ReadInt32();
             DestinationInventoryID = e.Reader.ReadInt32();
             Position = e.Reader.ReadInt32();
         }
@@ -106,7 +104,6 @@ namespace UnityMultiplayerDRPlugin.DTOs
         public void Serialize(SerializeEvent e)
         {
             e.Writer.Write(InventoryItemID);
-            e.Writer.Write(SourceInventoryID);
             e.Writer.Write(DestinationInventoryID);
             e.Writer.Write(Position);
         }
