@@ -150,7 +150,12 @@ namespace UnityMultiplayerDRPlugin.DTOs
         public bool Success { get; set; }
         public string Message { get; set; }
         public TransferItemClientDTO data { get; set; }
-        
+
+        public TransferItemServerDTO()
+        {
+            Message = "";
+
+        }
         public void Deserialize(DeserializeEvent e)
         {
             Success = e.Reader.ReadBoolean();
