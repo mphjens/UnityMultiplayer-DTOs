@@ -10,6 +10,7 @@ namespace UnityMultiplayerDRPlugin.DTOs
 
     public class SpawnEntityClientDTO : IDarkRiftSerializable
     {
+        public uint RequestID;
         public ushort EntityId;
         public ushort State;
         public bool hasPhysics;
@@ -24,6 +25,7 @@ namespace UnityMultiplayerDRPlugin.DTOs
 
         public void Deserialize(DeserializeEvent e)
         {
+            RequestID = e.Reader.ReadUInt32();
             EntityId = e.Reader.ReadUInt16();
             State = e.Reader.ReadUInt16();
             hasPhysics = e.Reader.ReadBoolean();
@@ -39,6 +41,7 @@ namespace UnityMultiplayerDRPlugin.DTOs
 
         public void Serialize(SerializeEvent e)
         {
+            e.Writer.Write(RequestID);
             e.Writer.Write(EntityId);
             e.Writer.Write(State);
             e.Writer.Write(hasPhysics);
@@ -56,6 +59,8 @@ namespace UnityMultiplayerDRPlugin.DTOs
 
     public class SpawnEntityServerDTO : IDarkRiftSerializable
     {
+        public uint RequestID;
+
         public uint ID;
         public uint parentID;
         public ushort EntityId;
@@ -72,6 +77,7 @@ namespace UnityMultiplayerDRPlugin.DTOs
 
         public void Deserialize(DeserializeEvent e)
         {
+            RequestID = e.Reader.ReadUInt16();
             ID = e.Reader.ReadUInt32();
             parentID = e.Reader.ReadUInt32();
             EntityId = e.Reader.ReadUInt16();
@@ -88,6 +94,7 @@ namespace UnityMultiplayerDRPlugin.DTOs
 
         public void Serialize(SerializeEvent e)
         {
+            e.Writer.Write(RequestID);
             e.Writer.Write(ID);
             e.Writer.Write(parentID);
             e.Writer.Write(EntityId);
