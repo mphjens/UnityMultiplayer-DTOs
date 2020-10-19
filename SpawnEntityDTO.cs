@@ -77,7 +77,7 @@ namespace UnityMultiplayerDRPlugin.DTOs
 
         public void Deserialize(DeserializeEvent e)
         {
-            RequestID = e.Reader.ReadUInt16();
+            RequestID = e.Reader.ReadUInt32();
             ID = e.Reader.ReadUInt32();
             parentID = e.Reader.ReadUInt32();
             EntityId = e.Reader.ReadUInt16();
