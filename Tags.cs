@@ -51,4 +51,7 @@ public static class Tags
     public static readonly ushort AddComponentTag = 30;
     public static readonly ushort RemoveComponentTag = 31;
     public static readonly ushort SetComponentPropertyTag = 32;
+
+    public static readonly ushort RequestLootEntity = 37;
+    public static readonly ushort = 38;
 }
